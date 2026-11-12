@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Rasyiiq | ITB STEI-K Academic Library</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root{
+    --ink:#080808;
+    --muted:#666;
+    --line:#dedede;
+    --blue:#174ea6;
+    --pink:#ff4da6;
+    --violet:#875cff;
+    --yellow:#ffc94a;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:#fff;
+    color:var(--ink);
+    font-family:"DM Sans",Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+button,input,select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* ================= NAV ================= */
+
+.nav{
+    width:100%;
+    height:76px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+    position:sticky;
+    top:0;
+    z-index:50;
+    border-bottom:1px solid #eee;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    font-size:15px;
+}
+
+.logo{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:#111;
+    color:#fff;
+    display:grid;
+    place-items:center;
+    font-size:11px;
+}
+
+.navlinks{
+    display:flex;
+    gap:25px;
+}
+
+.navlinks a{
+    text-decoration:none;
+    color:#444;
+    font-size:12px;
+    position:relative;
+}
+
+.navlinks a:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:1px;
+    background:#111;
+    transition:.25s;
+}
+
+.navlinks a:hover:after{
+    width:100%;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    width:100%;
+    min-height:850px;
+    background:#fff;
+    text-align:center;
+    padding:75px 5% 0;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    left:-8%;
+    right:-8%;
+    bottom:-80px;
+    height:470px;
+    background:
+        radial-gradient(
+            ellipse at 25% 58%,
+            rgba(244,73,190,.82),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(255,126,77,.75),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 78% 56%,
+            rgba(255,202,69,.72),
+            transparent 38%
+        );
+    filter:blur(28px);
+    animation:gradientDrift 9s ease-in-out infinite alternate;
+}
+
+.hero-inner{
+    width:min(1180px,92vw);
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.eyebrow{
+    font-family:"Playfair Display",serif;
+    font-style:italic;
+    font-size:19px;
+}
+
+h1{
+    font-size:clamp(58px,8vw,108px);
+    line-height:.92;
+    letter-spacing:-5px;
+    margin:18px auto 20px;
+    font-weight:700;
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#555;
+    font-size:16px;
+    line-height:1.65;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    border:1px solid #111;
+    border-radius:999px;
+    padding:11px 18px;
+    font-weight:600;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    display:inline-block;
+    position:relative;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px #0002;
+}
+
+.btn:active{
+    transform:scale(.97);
+}
+
+.hero .btn{
+    margin-top:24px;
+}
+
+.btn:before{
+    content:"";
+    position:absolute;
+    inset:-30%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #ffffff55,
+        transparent
+    );
+    transform:translateX(-120%) rotate(12deg);
+    transition:.7s;
+}
+
+.btn:hover:before{
+    transform:translateX(120%) rotate(12deg);
+}
+
+/* ================= BOOK ================= */
+
+.hero-visual{
+    width:min(520px,82vw);
+    height:360px;
+    margin:55px auto 0;
+    position:relative;
+}
+
+.book-stack{
+    position:absolute;
+    left:50%;
+    top:25px;
+    transform:translateX(-50%) rotate(-8deg);
+    width:250px;
+    height:320px;
+    border-radius:38px;
+    background:
+        linear-gradient(
+            145deg,
+            #101010 5%,
+            #173b85 42%,
+            #9b35cc 68%,
+            #ff4da6 100%
+        );
+    box-shadow:
+        0 38px 90px #0f0f192e,
+        inset 0 0 0 1px #ffffff33;
+    animation:floatBook 5.5s ease-in-out infinite;
+    transition:.3s;
+}
+
+.book-stack:before{
+    content:"RASYIIQ";
+    position:absolute;
+    left:27px;
+    top:48px;
+    color:#fff;
+    font-size:19px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.book-stack:after{
+    content:"ACADEMIC\A LIBRARY";
+    white-space:pre;
+    position:absolute;
+    left:27px;
+    bottom:38px;
+    color:#fff;
+    font-size:13px;
+    line-height:1.4;
+}
+
+.book-stack:hover{
+    animation:none;
+    transform:
+        translateX(-50%)
+        rotate(-3deg)
+        translateY(-14px)
+        scale(1.025);
+    box-shadow:0 50px 100px #0f0f1966;
+}
+
+@keyframes floatBook{
+    0%,100%{
+        transform:
+            translateX(-50%)
+            rotate(-8deg)
+            translateY(8px);
+    }
+
+    50%{
+        transform:
+            translateX(-50%)
+            rotate(-5deg)
+            translateY(-16px);
+    }
+}
+
+@keyframes gradientDrift{
+    0%{
+        transform:translate3d(-3%,0,0) scale(1);
+        filter:blur(28px) hue-rotate(0);
+    }
+
+    50%{
+        transform:translate3d(2%,-12px,0) scale(1.06);
+        filter:blur(32px) hue-rotate(12deg);
+    }
+
+    100%{
+        transform:translate3d(5%,4px,0) scale(1.02);
+        filter:blur(28px) hue-rotate(-8deg);
+    }
+}
+
+/* ================= GENERAL ================= */
+
+.container{
+    width:100%;
+    background:#fff;
+    padding:90px 5%;
+}
+
+.container>*{
+    width:min(1180px,92vw);
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    align-items:end;
+    margin-bottom:38px;
+}
+
+.section-kicker{
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:10px;
+    font-weight:700;
+    color:#999;
+    margin-bottom:14px;
+}
+
+.section-head h2{
+    font-size:clamp(42px,5vw,64px);
+    line-height:.98;
+    letter-spacing:-3px;
+    margin:0 0 10px;
+}
+
+.section-head p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================= SEARCH ================= */
+
+.toolbar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:24px;
+}
+
+.search{
+    flex:1;
+    min-width:220px;
+}
+
+input,select{
+    border:1px solid #d8d8d8;
+    background:#fff;
+    border-radius:12px;
+    padding:13px 14px;
+    outline:none;
+}
+
+input:focus,select:focus{
+    border-color:#111;
+}
+
+/* ================= COURSE ================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.card{
+    background:#fff;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:28px;
+    min-height:285px;
+    position:relative;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 45px #00000012;
+    z-index:2;
+}
+
+.course-code{
+    display:inline-flex;
+    padding:6px 9px;
+    border:1px solid #ddd;
+    border-radius:999px;
+    background:#fafafa;
+    font-size:11px;
+    font-weight:700;
+    color:#777;
+}
+
+.card h3{
+    font-size:25px;
+    letter-spacing:-.7px;
+    margin:10px 0;
+}
+
+.card p{
+    color:#666;
+    line-height:1.55;
+    font-size:14px;
+    min-height:62px;
+}
+
+.meta{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin:16px 0;
+}
+
+.tag{
+    background:#f3f3f0;
+    border-radius:999px;
+    padding:6px 9px;
+    font-size:11px;
+    color:#555;
+}
+
+.grid .card:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    pointer-events:none;
+    background:
+        linear-gradient(
+            120deg,
+            transparent 25%,
+            #ffffff80 48%,
+            transparent 70%
+        );
+    transform:translateX(-120%);
+    transition:.7s;
+}
+
+.grid .card:hover:after{
+    transform:translateX(120%);
+}
+
+/* ================= FILE SECTION ================= */
+
+.file-section{
+    width:100%;
+    background:#080808;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+}
+
+.file-section:before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    right:-180px;
+    top:-150px;
+    background:
+        radial-gradient(
+            circle,
+            #ff48adbb,
+            transparent 65%
+        );
+    filter:blur(30px);
+}
+
+.file-section .container{
+    background:transparent;
+    position:relative;
+    z-index:1;
+}
+
+.file-section .section-head p{
+    color:#aaa;
+}
+
+.dropzone{
+    border:1px solid #555;
+    border-radius:20px;
+    padding:42px;
+    text-align:center;
+    background:linear-gradient(
+        145deg,
+        #101010,
+        #151515
+    );
+    transition:.25s;
+    position:relative;
+    overflow:hidden;
+}
+
+.dropzone:hover{
+    border-color:#aaa;
+    transform:translateY(-2px);
+}
+
+.dropzone p{
+    color:#aaa;
+}
+
+.file-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:25px;
+}
+
+.file-card{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:16px;
+    padding:20px;
+    transition:.3s;
+}
+
+.file-card:hover{
+    transform:translateY(-6px);
+    border-color:#555;
+    box-shadow:0 16px 35px #00000047;
+}
+
+.file-icon{
+    font-size:25px;
+}
+
+.file-card h4{
+    margin:9px 0 4px;
+    word-break:break-word;
+}
+
+.file-card small{
+    color:#999;
+}
+
+.file-actions{
+    display:flex;
+    gap:7px;
+    margin-top:13px;
+    flex-wrap:wrap;
+}
+
+.file-actions button{
+    border-radius:999px;
+    padding:8px 12px;
+    border:1px solid #555;
+}
+
+.open{
+    background:#fff;
+    color:#111;
+}
+
+.download{
+    background:#d9ffe8;
+    color:#14532d;
+}
+
+.remove{
+    background:#2a1010;
+    color:#ffb4b4;
+}
+
+/* ================= ROADMAP ================= */
+
+.roadmap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.roadmap .card{
+    border:0;
+    min-height:190px;
+}
+
+.sem{
+    display:inline-block;
+    padding:6px 9px;
+    border-radius:999px;
+    background:#edf3ff;
+    color:var(--blue);
+    font-size:11px;
+    font-weight:700;
+}
+
+/* ================= INFO ================= */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.info-grid .card{
+    border:0;
+    min-height:170px;
+}
+
+.empty{
+    text-align:center;
+    color:#999;
+    padding:35px;
+    grid-column:1/-1;
+    background:#fff;
+}
+
+/* ================= GPA ================= */
+
+#gpa .card{
+    border:1px solid var(--line);
+    border-radius:20px;
+    box-shadow:0 18px 50px #0000000d;
+}
+
+.gpa-row{
+    align-items:center;
+}
+
+#gpaResult{
+    font-size:34px;
+    letter-spacing:-1.5px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    width:100%;
+    padding:55px 5%;
+    background:#fff;
+    border-top:1px solid var(--line);
+    text-align:center;
+    color:#777;
+    font-size:13px;
+}
+
+/* ================= QUICK NAV ================= */
+
+.quick-nav{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:50;
+    display:flex;
+    gap:7px;
+    padding:7px;
+    border:1px solid #ffffff80;
+    background:#ffffffc7;
+    backdrop-filter:blur(18px);
+    border-radius:999px;
+    box-shadow:0 12px 35px #00000026;
+}
+
+.quick-nav a{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:#111;
+    text-decoration:none;
+    font-size:12px;
+}
+
+.quick-nav a:hover{
+    background:#111;
+    color:#fff;
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    filter:blur(2px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        filter .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+    filter:blur(0);
+}
+
+.cursor-glow{
+    position:fixed;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:999;
+    background:
+        radial-gradient(
+            circle,
+            #ff4da61a,
+            #6f5bff0b 35%,
+            transparent 70%
+        );
+    transform:translate(-50%,-50%);
+    opacity:0;
+}
+
+@media(pointer:fine){
+    .cursor-glow{
+        opacity:1;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:850px){
+
+    .nav{
+        padding:0 20px;
+    }
+
+    .navlinks{
+        display:none;
+    }
+
+    .hero{
+        padding-top:60px;
+        min-height:760px;
+    }
+
+    .container{
+        padding:65px 25px;
+    }
+
+    .grid,
+    .file-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .roadmap{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:560px){
+
+    h1{
+        font-size:56px;
+        letter-spacing:-3px;
+    }
+
+    .hero-visual{
+        height:320px;
+    }
+
+    .book-stack{
+        width:220px;
+        height:285px;
+    }
+
+    .grid,
+    .file-grid,
+    .roadmap{
+        grid-template-columns:1fr;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-head h2{
+        font-size:40px;
+    }
+
+    .quick-nav{
+        right:12px;
+        bottom:12px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *:before,
+    *:after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        scroll-behavior:auto!important;
+        transition-duration:.01ms!important;
+    }
+}
+
+/* Editorial study portal — reference-inspired */
+:root{--ink:#111;--muted:#717171;--line:#e9e9e9;--blue:#111}
+body{background:#e9e9e9;padding:48px max(24px,calc((100vw - 1280px)/2));color:#111}
+.nav{position:relative;height:88px;background:white;border:0;padding:0 7%;gap:20px}.brand{font-size:13px;letter-spacing:-.3px}.logo{background:#111}.navlinks a{font-size:12px;color:#222}.navlinks{gap:24px;flex-wrap:wrap}
+.hero{padding:64px 6% 0;min-height:880px;background:white;border:0}
+.hero-inner{width:100%;max-width:1080px}.eyebrow{font-size:22px;color:#242424}
+.hero h1{font-size:clamp(48px,6.5vw,82px);line-height:.98;letter-spacing:-4.5px;max-width:850px;margin:20px auto 24px}
+.hero p{font-size:15px;line-height:1.75;max-width:580px;color:#767676}
+.btn{background:transparent;color:#111;border:1px solid #222;border-radius:999px;padding:12px 21px;font-size:12px;font-weight:500;box-shadow:none}
+.btn:hover{background:#111;color:white;box-shadow:none;transform:translateY(-2px)}
+.hero:after{left:-15%;right:-15%;top:310px;bottom:auto;height:380px;background:radial-gradient(ellipse at 22% 60%,#ec62b8 0,transparent 54%),radial-gradient(ellipse at 70% 45%,#ff796b 0,transparent 52%),radial-gradient(ellipse at 68% 10%,#fff0ac 0,transparent 64%);filter:blur(35px);animation:none}
+.hero:before{content:'';position:absolute;z-index:3;bottom:0;left:0;right:0;height:150px;background:linear-gradient(transparent,white);pointer-events:none}
+.hero-visual{display:block;width:100%;height:470px;margin:65px auto 0;perspective:1200px}
+.book-stack{display:none}.study-phone{position:relative;margin:auto;width:228px;height:435px;transform:rotate(-10deg) rotateY(-12deg);border:7px solid #171717;border-right:10px solid #8a8a8a;border-radius:39px;background:#fff;box-shadow:24px 30px 35px #3c214033,inset 0 0 0 2px #ddd;overflow:hidden;text-align:left}
+.study-phone:before{content:'';position:absolute;top:0;left:66px;width:86px;height:19px;border-radius:0 0 15px 15px;background:#111;z-index:3}
+.phone-screen{height:100%;padding:43px 17px 15px;background:radial-gradient(ellipse at 100% 0%,#ffb9b8,transparent 55%),radial-gradient(ellipse at 0% 45%,#eee0ff,transparent 70%),#fff}
+.phone-overline{font-size:8px;font-weight:700;letter-spacing:2px}.phone-screen h2{font-size:29px;line-height:1.05;letter-spacing:-1.4px;margin:20px 0}.phone-screen p{font-size:10px;line-height:1.5;text-align:left;color:#555}.phone-tile{margin-top:12px;padding:14px 12px;background:#ffffffcc;border:1px solid #fff;border-radius:12px;font-size:11px;font-weight:600}.phone-tile small{display:block;font-weight:400;color:#777;font-size:9px;margin-top:5px}.phone-footer{font-size:9px;margin-top:20px;color:#666}
+.container{max-width:none;width:100%;padding:80px 7%;scroll-margin-top:30px}.container>*{width:100%;max-width:1100px}
+#study{position:relative;padding-top:40px;padding-bottom:100px;background:radial-gradient(ellipse at 20% 110%,#f6afe0,transparent 35%),radial-gradient(ellipse at 90% 110%,#fff1b3,transparent 35%),white}
+.portal-head{display:grid;grid-template-columns:1.5fr 1fr;gap:70px;align-items:center;margin-bottom:65px}.portal-head h2{font-family:'DM Sans',Arial,sans-serif;font-size:clamp(40px,5vw,66px);line-height:1.03;letter-spacing:-3px;margin:0;font-weight:600;max-width:570px}.portal-head h2 em{font-family:'Playfair Display',Georgia,serif;font-weight:500}.portal-head p{max-width:290px;margin-left:auto;font-size:17px;line-height:1.6;color:#222}.section-kicker{color:#777}
+.study-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:35px}.study-card{padding:0;min-height:0;border:0;border-radius:0;background:transparent;box-shadow:none;display:flex;flex-direction:column;align-items:start;gap:14px}.study-card h3{font-size:18px;letter-spacing:-.6px;margin:0}.study-card p{font-size:12px;line-height:1.8;color:#737373;margin:0;flex:1}.study-label{font-size:10px;letter-spacing:1.3px;color:#666;text-transform:uppercase}.study-icon{display:none}.study-card a{margin-top:4px}.study-card:hover{background:transparent;transform:none;box-shadow:none}
+.focus-banner{padding:80px 7%;background:radial-gradient(ellipse at 90% 90%,#ffe64c,transparent 55%),radial-gradient(ellipse at 60% 0%,#ff387a,transparent 65%),linear-gradient(115deg,#300a81,#a30c9a 40%,#ff8e42);color:white;min-height:280px;display:flex;align-items:center;justify-content:space-between;gap:40px}.focus-banner h2{font-size:clamp(35px,5vw,64px);line-height:1.05;letter-spacing:-2px;margin:12px 0}.focus-banner p{max-width:270px;font-size:14px;line-height:1.8}.focus-banner small{letter-spacing:2px;font-size:10px}
+.file-section{background:#fafafa}.file-section .container{background:transparent}.dropzone{background:white;border-radius:12px}.card{box-shadow:none}.grid .card:hover{background:#fafafa;transform:none}.cursor-glow,.quick-nav{display:none}.reveal{opacity:1!important;transform:none!important}
+input,select{color:#111;min-height:44px}:focus-visible{outline:3px solid #9b3a9c;outline-offset:4px}.gpa-row{flex-wrap:wrap}.gpa-row input:first-child{min-width:140px}footer{background:white}.info-grid .card{min-height:200px}
+@media(max-width:760px){body{padding:0}.nav{height:auto;min-height:90px;flex-wrap:wrap;padding:20px 6%;gap:20px}.navlinks{display:flex;gap:18px}.hero{padding-top:45px;min-height:810px}.hero h1{font-size:54px;letter-spacing:-3px}.hero p{font-size:14px}.eyebrow{font-size:19px}.hero:after{top:330px}.hero-visual{margin-top:55px}.study-phone{width:204px;height:395px}.container{padding:60px 6%}.portal-head{grid-template-columns:1fr;gap:24px;margin-bottom:45px}.portal-head h2{font-size:47px}.portal-head p{max-width:none;margin:0;font-size:15px}.study-grid{grid-template-columns:1fr;gap:32px}.study-card{padding-bottom:24px;border-bottom:1px solid #ddd}.study-card h3{font-size:23px}.study-card p{font-size:14px}.focus-banner{flex-direction:column;align-items:start;gap:10px}.grid{grid-template-columns:1fr}.gpa-row{display:flex}.section-head{flex-wrap:wrap}.section-head h2{font-size:40px}.info-grid,.roadmap{grid-template-columns:1fr}.container>*{width:100%}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Full-width layout and dimensional product details */
+body{padding:0;background:#fff}
+.nav{max-width:1440px;margin:auto;padding-left:6%;padding-right:6%;height:94px}
+.hero{min-height:940px;padding-top:65px}
+.hero-inner{max-width:1200px}
+.hero h1{font-size:clamp(54px,6.2vw,94px);letter-spacing:-5px}
+.hero p{max-width:580px}
+.hero:after{top:350px;height:400px;left:-6%;right:-6%;background:radial-gradient(ellipse at 22% 55%,#ec65b5cc,transparent 52%),radial-gradient(ellipse at 68% 45%,#ff846dcc,transparent 52%),radial-gradient(ellipse at 73% 0%,#ffe7a9,transparent 62%);filter:blur(40px)}
+.hero-visual{height:500px;margin-top:65px;perspective:1400px}
+.study-phone{width:248px;height:474px;border:0;border-radius:44px;padding:8px;overflow:visible;background:linear-gradient(115deg,#eee 0%,#434343 5%,#b5b3b5 7%,#232326 10%,#111 85%,#aaa 96%,#454545 100%);box-shadow:3px 2px 0 #e0dce1,7px 5px 0 #565359,10px 7px 0 #302e33,23px 28px 40px #43283b33,45px 54px 80px #39243422;transform:rotate(-9deg) rotateY(-16deg) rotateX(5deg)}
+.study-phone:before{top:18px;left:50%;transform:translateX(-50%);width:76px;height:21px;border-radius:15px;background:#08090c;box-shadow:inset 0 0 1px #555;z-index:5}
+.study-phone:after{content:'';position:absolute;right:-8px;top:110px;height:51px;width:4px;border-radius:3px;background:linear-gradient(90deg,#333,#aaa,#333)}
+.phone-screen{position:relative;border-radius:36px;overflow:hidden;padding:22px 16px 20px;border:2px solid #080808;background:radial-gradient(ellipse at 100% 10%,#f8d5d2,transparent 55%),radial-gradient(ellipse at 0% 50%,#eae2f7,transparent 65%),#fcfbff;box-shadow:inset 1px 1px 4px #ffffffaa}
+.phone-screen:after{content:'';position:absolute;bottom:7px;left:50%;transform:translateX(-50%);height:4px;width:78px;border-radius:4px;background:#171717}
+.phone-status{display:flex;justify-content:space-between;font-size:9px;font-weight:700;margin:0 3px 28px;color:#171717}.phone-status span:last-child{letter-spacing:1px}
+.phone-overline{font-size:8px;letter-spacing:1.7px;color:#4a4650}
+.phone-screen h2{font-size:30px;margin:16px 0 12px;letter-spacing:-1.5px}.phone-screen p{font-size:10px;line-height:1.5}.phone-tile{background:#ffffffd9;box-shadow:0 3px 10px #3c264a08;border:1px solid #ffffffed;padding:13px 11px;margin-top:10px;border-radius:11px}.phone-footer{font-size:8px;margin-top:17px}
+.container{padding-left:max(6%,calc((100vw - 1180px)/2));padding-right:max(6%,calc((100vw - 1180px)/2))}
+.container>*{max-width:none}
+#study{padding-top:60px;padding-bottom:110px}.portal-head{gap:90px;margin-bottom:70px}.portal-head h2{font-size:clamp(44px,5vw,70px)}
+.study-grid{gap:42px}.study-card p{font-size:14px}.study-card h3{font-size:21px}.study-card .btn{margin-top:10px;padding:12px 19px}
+.focus-banner{padding:85px max(6%,calc((100vw - 1180px)/2));min-height:330px}
+.grid{gap:1px;background:#e8e8e8;border:1px solid #e8e8e8;border-radius:16px}.grid .card{border:0;display:flex;flex-direction:column;align-items:start}.grid .card .btn{margin-top:auto}.grid .card p{margin-bottom:25px}
+.file-section .container{padding-top:80px;padding-bottom:80px}.dropzone{border:1px dashed #bbb;padding:40px 20px}.section-head p{line-height:1.7}.card p{line-height:1.7}
+#gpa>.card{border:1px solid #e5e5e5;border-radius:16px;padding:30px}.gpa-row{gap:12px}.gpa-row input,.gpa-row select{background:#fafafa}#gpaResult{font-size:30px;letter-spacing:-1px;margin-top:28px}
+@media(min-width:1600px){.hero{min-height:990px;padding-top:80px}.hero h1{font-size:100px}.hero:after{top:375px}}
+@media(max-width:760px){.nav{height:auto;min-height:94px;padding:20px 6%}.hero{padding-top:45px;min-height:860px}.hero h1{font-size:clamp(46px,10vw,70px);letter-spacing:-2.8px}.hero:after{top:340px;height:340px}.hero-visual{margin-top:55px;height:450px}.study-phone{width:224px;height:440px}.phone-screen{padding:21px 14px 18px}.phone-screen h2{font-size:27px}.phone-status{margin-bottom:24px}.phone-tile{padding:11px 9px}.phone-footer{margin-top:13px}.container{padding:60px 6%}#study{padding-top:35px;padding-bottom:65px}.portal-head{gap:24px;margin-bottom:42px}.portal-head h2{font-size:46px}.study-grid{gap:30px}.focus-banner{padding:55px 6%;min-height:0}.file-section .container{padding:60px 6%}.grid .card{padding:25px}.gpa-row input:first-child{flex-basis:100%!important}#gpa>.card{padding:20px}.hero p{max-width:460px}}
+
+
+/* Motion: transform-only effects with accessible fallbacks */
+html{scroll-behavior:smooth;scroll-padding-top:28px}
+.study-phone{--tilt-x:0deg;--tilt-y:0deg;animation:phone-orbit 9s ease-in-out infinite;will-change:transform;transition:filter .35s ease}
+@keyframes phone-orbit{
+0%,100%{transform:translateY(0) rotate(-9deg) rotateY(calc(-16deg + var(--tilt-y))) rotateX(calc(5deg + var(--tilt-x)))}
+35%{transform:translateY(-15px) rotate(-5deg) rotateY(calc(8deg + var(--tilt-y))) rotateX(calc(9deg + var(--tilt-x)))}
+70%{transform:translateY(-6px) rotate(-11deg) rotateY(calc(-25deg + var(--tilt-y))) rotateX(calc(2deg + var(--tilt-x)))}}
+.hero:after{animation:ambient-drift 14s ease-in-out infinite alternate;will-change:transform}
+@keyframes ambient-drift{from{transform:translate3d(-2%,0,0) scale(1)}to{transform:translate3d(3%,22px,0) scale(1.07)}}
+.hero .eyebrow{animation:hero-enter .8s both}.hero h1{animation:hero-enter .9s .1s both}.hero p{animation:hero-enter .9s .2s both}.hero .btn{animation:hero-enter .9s .3s both}
+@keyframes hero-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.motion-ready .motion-item{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.65,.3,1);transition-delay:var(--reveal-delay,0ms)}
+.motion-ready .motion-item.motion-shown{opacity:1;transform:translateY(0)}
+.btn{transition:background .25s,color .25s,box-shadow .25s,transform .25s}.btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px #00000012}.btn:active{transform:translateY(0) scale(.97)}
+.study-card h3{transition:transform .3s}.study-card:hover h3{transform:translateX(5px)}
+.phone-tile{transition:transform .3s,box-shadow .3s}.phone-tile:hover{transform:translateX(3px);box-shadow:0 5px 16px #3c264a14}
+.navlinks a:after{transition:width .3s cubic-bezier(.2,.65,.3,1)}
+.motion-paused .study-phone,.motion-paused .hero:after{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.study-phone,.hero:after,.hero .eyebrow,.hero h1,.hero p,.hero .btn{animation:none!important}.motion-ready .motion-item{opacity:1;transform:none;transition:none}.btn,.phone-tile,.study-card h3{transition:none!important}.btn:hover,.phone-tile:hover,.study-card:hover h3{transform:none}}
+
+
+/* Full-turn device and study tools */
+.hero-visual{perspective:1500px}
+.study-phone{transform-style:preserve-3d;animation:phone-full-turn 18s linear infinite;background:#27262b;box-shadow:12px 20px 35px #43283b33}
+@keyframes phone-full-turn{0%{transform:translateY(0) rotate(-8deg) rotateY(0deg)}25%{transform:translateY(-12px) rotate(-5deg) rotateY(90deg)}50%{transform:translateY(0) rotate(-8deg) rotateY(180deg)}75%{transform:translateY(-12px) rotate(-5deg) rotateY(270deg)}100%{transform:translateY(0) rotate(-8deg) rotateY(360deg)}}
+.phone-screen{backface-visibility:hidden;transform:translateZ(5px)}
+.study-phone:before{transform:translateX(-50%) translateZ(9px);backface-visibility:hidden}
+.phone-back{position:absolute;inset:0;border:2px solid #b6b2bc;border-radius:44px;background:linear-gradient(135deg,#e2dde8,#aaa2b8 45%,#cec7da 80%,#f4eff8);transform:rotateY(180deg) translateZ(5px);backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#62596e;box-shadow:inset 0 0 0 5px #ffffff35}
+.phone-back strong{font-size:26px;letter-spacing:-1px}.phone-back span{font-size:8px;letter-spacing:3px;margin-top:8px}.camera-block{position:absolute;left:14px;top:15px;width:89px;height:93px;border-radius:23px;background:linear-gradient(140deg,#d9d1e1,#a59bb3);box-shadow:2px 3px 6px #76678255;display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px}.camera-block i{display:block;border:4px solid #696274;border-radius:50%;background:radial-gradient(circle at 40% 35%,#405b85 0,#0c1528 25%,#111 55%,#313445 70%);box-shadow:0 0 0 1px #d6cfdf}.camera-block i:last-child{width:13px;height:13px;align-self:center;justify-self:center;background:#fff4d4;border:2px solid #c6bbc5}
+.orbit-note{position:absolute;left:calc(50% - 340px);top:100px;background:#ffffffb8;border:1px solid #ffffffd9;border-radius:15px;padding:16px 20px;box-shadow:0 10px 35px #6832460c;text-align:left;animation:note-float 6s ease-in-out infinite;backdrop-filter:blur(12px)}.orbit-note strong{display:block;font-size:14px;margin-top:6px}.orbit-note small{font-size:10px;letter-spacing:1px;color:#69616b}.orbit-note.second{left:auto;right:calc(50% - 335px);top:255px;animation-delay:-3s}
+@keyframes note-float{50%{transform:translateY(-13px)}}
+.motion-toggle{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);z-index:8;border:1px solid #ddd;background:#ffffffdc;padding:8px 13px;border-radius:30px;color:#555;font-size:11px;cursor:pointer}.hero:before{z-index:2}.hero-inner{z-index:3}
+.user-paused .study-phone,.user-paused .hero:after,.user-paused .orbit-note{animation-play-state:paused!important}
+.study-tools{background:#faf9fc}.tool-layout{display:grid;grid-template-columns:1.15fr 1fr;gap:50px;align-items:start}.study-tools h2{font-size:clamp(35px,4vw,54px);letter-spacing:-2px;margin:0 0 18px}.study-tools p{color:#777;line-height:1.7;font-size:14px}.learning-steps{list-style:none;padding:0;margin:30px 0 0}.learning-steps li{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid #e4e0e9}.step-number{width:35px;height:35px;flex-shrink:0;display:grid;place-items:center;border:1px solid #d6ccd9;border-radius:50%;font-size:12px;color:#805a88}.learning-steps h3{font-size:17px;margin:0 0 6px}.learning-steps p{margin:0}.learning-steps a{color:#704579;text-underline-offset:4px;font-size:12px;display:inline-block;margin-top:10px}
+.timer-panel{border:1px solid #e8e2eb;background:white;border-radius:24px;padding:35px;text-align:center;box-shadow:0 18px 60px #4a255408}.timer-panel h3{font-size:20px;margin:14px 0}.timer-display{font-size:clamp(58px,7vw,86px);font-variant-numeric:tabular-nums;letter-spacing:-5px;line-height:1.3;margin:20px 0;color:#161219}.timer-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.timer-panel label{display:block;font-size:12px;color:#666;margin:20px 0 8px}.timer-panel select{max-width:100%;width:190px}.timer-track{height:4px;border-radius:4px;background:#f1eaf3;overflow:hidden;margin:25px 0 15px}.timer-track span{height:100%;display:block;width:0;background:linear-gradient(90deg,#ac65b1,#f59a84);transition:width 1s linear}.timer-status{min-height:24px;font-size:12px!important}.timer-panel.running{box-shadow:0 18px 60px #a54fa51a;border-color:#d5b3d9}
+.study-ribbon{display:flex;justify-content:center;gap:42px;padding:25px 6%;border-block:1px solid #eee;color:#767076;font-size:11px;letter-spacing:2px;flex-wrap:wrap;background:#fff}.study-ribbon span{display:flex;align-items:center;gap:12px}.study-ribbon span:before{content:'';width:5px;height:5px;background:#d486b9;border-radius:50%}
+@media(max-width:760px){.orbit-note{left:0;top:60px;padding:11px;max-width:118px}.orbit-note.second{right:0;top:290px;max-width:115px}.orbit-note strong{font-size:11px}.orbit-note small{font-size:8px}.tool-layout{grid-template-columns:1fr;gap:35px}.timer-panel{padding:25px}.study-ribbon{gap:20px;font-size:9px}.motion-toggle{bottom:-4px}.phone-back{border-radius:44px}}
+@media(prefers-reduced-motion:reduce){.study-phone,.orbit-note{animation:none!important}.study-phone{transform:rotate(-8deg) rotateY(-12deg)}.timer-track span{transition:none}.motion-toggle{display:none}}
+
+/* Interactive learning sections */
+.discovery{background:#fff}.discovery-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px}.discovery h2,.daily-lab h2{font-size:clamp(34px,4vw,56px);letter-spacing:-2px;line-height:1.08;margin:12px 0}.discovery-heading p{max-width:310px;line-height:1.7;color:#777;font-size:14px}
+.subject-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.subject-tile{position:relative;overflow:hidden;border:1px solid #eee;border-radius:20px;padding:28px;min-height:280px;color:#171217;text-decoration:none;background:#fbf8fc;transition:transform .35s,box-shadow .35s}.subject-tile:nth-child(2){background:#fff8ee}.subject-tile:nth-child(3){background:#f3f5ff}.subject-tile:hover{transform:translateY(-7px);box-shadow:0 18px 40px #34223a12}.subject-tile h3{font-size:22px;margin:25px 0 12px}.subject-tile p{font-size:13px;color:#716b73;line-height:1.7;max-width:240px}.subject-tile .tile-link{display:block;font-size:12px;margin-top:24px}.subject-symbol{font:italic 52px Georgia,serif;display:block;height:65px;color:#975e9d;animation:symbol-float 7s ease-in-out infinite}.subject-tile:nth-child(2) .subject-symbol{color:#bc793b;animation-delay:-2s}.subject-tile:nth-child(3) .subject-symbol{color:#6771a7;animation-delay:-4s}@keyframes symbol-float{50%{transform:translateY(-7px) rotate(5deg)}}
+.daily-lab{background:#fbfafc}.lab-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:35px}.lab-panel{border:1px solid #e7e1e9;border-radius:20px;padding:30px;background:#fff}.lab-panel h3{font-size:22px;letter-spacing:-.6px;margin:10px 0 16px}.lab-panel p{font-size:14px;line-height:1.7;color:#716975}.check-row{display:flex;align-items:center;gap:13px;padding:18px 0;border-bottom:1px solid #eee;font-size:14px;cursor:pointer}.check-row input{width:19px;height:19px;min-height:0;accent-color:#95639a;flex-shrink:0}.check-row input:checked+span{text-decoration:line-through;color:#8a7b8e}.completion-line{display:flex;justify-content:space-between;font-size:12px;margin-top:24px;color:#6e5375}.completion-bar{height:6px;border-radius:6px;overflow:hidden;background:#f1eaf3;margin:12px 0 20px}.completion-bar div{height:100%;width:0;background:linear-gradient(90deg,#c07abe,#f4ab91);transition:width .5s ease}.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}.quiz-option{border:1px solid #ddd;border-radius:10px;background:#fff;padding:14px;font:inherit;font-size:14px;text-align:left;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}.quiz-option:hover:not(:disabled){transform:translateY(-2px);border-color:#9e70a3}.quiz-option:disabled{cursor:default;color:#555}.quiz-option.correct{background:#eef8f0;border-color:#77a481;color:#245933}.quiz-option.wrong{background:#fff0ef;border-color:#d79b96;color:#8e3f39}.quiz-feedback{min-height:68px}.quiz-panel.answered{animation:answer-settle .4s ease}@keyframes answer-settle{50%{transform:translateY(-3px)}}
+.reading-line{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#a45db0,#ed799f,#f6b26e);width:100%;transform:scaleX(0);transform-origin:left;z-index:100;pointer-events:none}.back-top{position:fixed;right:22px;bottom:22px;z-index:60;border:1px solid #ddd;border-radius:50%;width:44px;height:44px;background:#fffffff0;box-shadow:0 5px 20px #0001;text-decoration:none;color:#222;display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s,transform .3s,visibility .3s}.back-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.user-paused .subject-symbol,.motion-paused .orbit-note{animation-play-state:paused!important}
+@media(max-width:760px){.discovery-heading{display:block}.subject-tiles,.lab-grid{grid-template-columns:1fr}.subject-tile{min-height:240px}.discovery-heading p{max-width:none}.lab-panel{padding:24px}.back-top{right:15px;bottom:15px}}
+@media(prefers-reduced-motion:reduce){.subject-symbol,.quiz-panel.answered{animation:none!important}.subject-tile,.quiz-option,.completion-bar div,.back-top{transition:none}.subject-tile:hover,.quiz-option:hover:not(:disabled){transform:none}}
+
+/* Site-wide motion and richer learning workspace */
+.section-kicker{position:relative;padding-left:17px}.section-kicker:before{content:'';position:absolute;left:0;top:3px;width:6px;height:6px;border-radius:50%;background:#bf79ac;animation:status-breathe 4s ease-in-out infinite}@keyframes status-breathe{50%{opacity:.35;transform:scale(.7)}}
+.grid .card,.lab-panel,.timer-panel,.notes-panel{position:relative;overflow:hidden;background-image:radial-gradient(250px circle at var(--pointer-x,-300px) var(--pointer-y,-300px),#f4d8f340,transparent 80%)}
+.grid .card{transition:box-shadow .3s,background-color .3s}.grid .card:hover{box-shadow:inset 0 3px #cc9ac2;background-color:#fffafd}.course-code{transition:letter-spacing .3s}.grid .card:hover .course-code{letter-spacing:2px}
+.focus-banner{position:relative;overflow:hidden;isolation:isolate}.focus-banner:after{content:'';position:absolute;width:350px;height:350px;right:-70px;top:-100px;border:1px solid #ffffff50;border-radius:50%;box-shadow:0 0 0 45px #ffffff0a,0 0 0 90px #ffffff09;z-index:-1;animation:halo-drift 12s ease-in-out infinite alternate}@keyframes halo-drift{to{transform:translate(-80px,70px) scale(1.15)}}
+.roadmap .card{transition:transform .4s,box-shadow .4s}.roadmap .card:hover{transform:translateY(-7px);box-shadow:0 16px 35px #5e416d12}.roadmap .sem{display:inline-block;transition:transform .3s}.roadmap .card:hover .sem{transform:translateX(5px)}
+.workspace-section{background:#fcfafc}.workspace-heading h2,.topic-heading h2{font-size:clamp(35px,4.5vw,58px);line-height:1.08;letter-spacing:-2px;margin:15px 0}.workspace-heading p,.topic-heading p{font-size:14px;color:#746b77;line-height:1.8;max-width:560px}.workspace-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:25px;margin-top:35px}.notes-panel,.session-panel{padding:30px;border:1px solid #e6e0e9;border-radius:20px;background-color:#fff}.notes-panel h3,.session-panel h3{margin:0 0 18px;font-size:21px}.notes-panel label{display:block;font-size:12px;margin-bottom:10px;color:#6c6370}.notes-panel textarea{display:block;width:100%;resize:vertical;min-height:210px;padding:17px;border:1px solid #ddd5df;border-radius:12px;background:#fefcff;color:#29232d;font:14px/1.8 'DM Sans',Arial,sans-serif}.notes-meta{display:flex;justify-content:space-between;gap:15px;margin:12px 0 20px;font-size:11px;color:#7c7280}.notes-actions{display:flex;gap:12px;flex-wrap:wrap}.session-row{display:flex;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid #eee;font-size:13px}.session-row strong{font-size:17px;font-variant-numeric:tabular-nums}.session-hint{font-size:12px;line-height:1.8;color:#817487;margin:25px 0 0}.session-orb{height:70px;display:flex;align-items:center;gap:7px;margin-bottom:18px}.session-orb i{width:7px;background:linear-gradient(#c28bca,#f5b6a0);border-radius:9px;height:20px;animation:wave-bar 2.5s ease-in-out infinite}.session-orb i:nth-child(2){animation-delay:-.3s;height:38px}.session-orb i:nth-child(3){animation-delay:-.6s;height:52px}.session-orb i:nth-child(4){animation-delay:-.9s;height:32px}.session-orb i:nth-child(5){animation-delay:-1.2s;height:18px}@keyframes wave-bar{50%{transform:scaleY(.55)}}
+.topic-explorer{background:white}.topic-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:60px}.topic-list details{border-bottom:1px solid #e8e2e9;padding:20px 0}.topic-list summary{font-size:18px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px}.topic-list summary::-webkit-details-marker{display:none}.topic-list summary:after{content:'+';font-weight:400;color:#9a6b9d;transition:transform .3s}.topic-list details[open] summary:after{transform:rotate(45deg)}.topic-answer{font-size:14px;line-height:1.9;color:#706576;padding-top:15px;animation:topic-enter .35s ease}.topic-answer p{margin:0 0 12px}.topic-answer a{color:#81538d;text-underline-offset:4px}.topic-answer code{background:#f7f0f8;border-radius:5px;padding:3px 7px;color:#5c4366}@keyframes topic-enter{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.closing-section{text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 15% 100%,#f5c4e4,transparent 55%),radial-gradient(ellipse at 90% 100%,#ffe2b4,transparent 55%),#fff;padding:95px 6%}.closing-section h2{font-size:clamp(40px,5vw,70px);line-height:1.05;letter-spacing:-3px;margin:18px auto;max-width:760px}.closing-section p{font-size:14px;color:#746774;margin:20px auto 30px;max-width:450px;line-height:1.8}.closing-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.global-motion-toggle{position:fixed;bottom:22px;left:22px;z-index:60;font-size:11px;padding:11px 15px;border-radius:30px;border:1px solid #ddd;background:#fffffff0;color:#625266;box-shadow:0 5px 20px #00000008;cursor:pointer}
+.user-paused *,.user-paused *:before,.user-paused *:after{animation-play-state:paused!important}
+@media(max-width:760px){.workspace-grid,.topic-layout{grid-template-columns:1fr;gap:25px}.notes-panel,.session-panel{padding:23px}.closing-section{padding:65px 6%}.global-motion-toggle{bottom:15px;left:15px;max-width:190px}.notes-meta{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.section-kicker:before,.focus-banner:after,.session-orb i,.topic-answer{animation:none!important}.global-motion-toggle{display:none}.roadmap .card:hover{transform:none}}
+</style>
+</head>
+
+<body id="top"><div class="reading-line" id="readingLine" aria-hidden="true"></div><a class="back-top" id="backTop" href="#top" aria-label="Kembali ke atas">↑</a>
+
+<div class="cursor-glow"></div>
+
+<nav class="nav">
+
+    <div class="brand">
+        <div class="logo">MR</div>
+        <span>RASYIIQ ACADEMIC</span>
+    </div>
+
+    <div class="navlinks">
+        <a href="#study">Belajar UAS</a>
+        <a href="#library">Library</a>
+        <a href="#files">My Files</a>
+        <a href="#focus">Focus</a>
+        <a href="#gpa">GPA</a>
+        <a href="#roadmap">Roadmap</a>
+    </div>
+
+</nav>
+
+<header class="hero">
+
+    <div class="hero-inner">
+
+        <div class="eyebrow">
+            Your Learning, in Perfect Rhythm.
+        </div>
+
+        <h1>
+            Study Smarter,
+            <br>
+            Not Harder.
+        </h1>
+
+        <p>
+            Personal academic library untuk menyimpan,
+            mengakses, dan mengorganisasi materi kuliah
+            Muhammad Rasyiiq sebagai mahasiswa ITB STEI-K.
+        </p>
+
+        <a class="btn" href="#study">
+            Jelajahi materi UAS ↗
+        </a>
+
+        <div class="hero-visual"><div class="orbit-note" aria-hidden="true"><small>ONE SPACE</small><strong>Materi. Latihan. Fokus.</strong></div><div class="orbit-note second" aria-hidden="true"><small>YOUR NEXT CHAPTER</small><strong>Mulai dari satu langkah.</strong></div><button class="motion-toggle" type="button" id="motionToggle" aria-pressed="false">Pause animation</button>
+            <div class="study-phone" aria-label="Ilustrasi portal belajar pada ponsel"><div class="phone-back" aria-hidden="true"><div class="camera-block"><i></i><i></i><i></i><i></i></div><strong>MR.</strong><span>RASYIIQ ACADEMIC</span></div><div class="phone-screen"><div class="phone-status" aria-hidden="true"><span>9:41</span><span>▴ ▰</span></div><div class="phone-overline">RASYIIQ ACADEMIC</div><h2>A little focus.<br>A brighter<br>future.</h2><p>Ruang belajarmu, dalam genggaman.</p><div class="phone-tile">01 &nbsp; Materi Fisika<small>Pahami konsep, satu per satu.</small></div><div class="phone-tile">02 &nbsp; Persiapan UAS<small>Siap untuk langkah berikutnya.</small></div><div class="phone-tile">03 &nbsp; Berpikir Komputasional<small>Bangun cara berpikir yang runtut.</small></div><div class="phone-footer">ITB STEI-K · Personal library</div></div></div>
+        </div>
+
+    </div>
+
+</header>
+
+<section class="container" id="study"><div class="portal-head"><div><div class="section-kicker">YOUR PERSONAL STUDY SPACE</div><h2>Belajar Lebih<br>Terarah, dengan<br><em>Lebih Sedikit<br>Distraksi.</em></h2></div><p>Materi, persiapan UAS, dan koleksi kuliah. Semua yang kamu butuhkan untuk fokus, dalam satu tempat.</p></div><div class="study-grid"><article class="card study-card"><div class="study-icon" aria-hidden="true">∑</div><span class="study-label">Fisika · Materi</span><h3>Materi UAS Fisika</h3><p>Buka portal materi fisika sebagai teman mengulang konsep menjelang UAS.</p><a class="btn" href="https://acikfisikamateriuas.vercel.app/" target="_blank" rel="noopener noreferrer">Buka portal ↗<span style="position:absolute;clip-path:inset(50%)"> (tab baru)</span></a></article><article class="card study-card"><div class="study-icon" aria-hidden="true">↗</div><span class="study-label">Fisika · Persiapan UAS</span><h3>UAS Fisika 100</h3><p>Lanjutkan persiapan ujian melalui portal belajar UAS Fisika.</p><a class="btn" href="https://acikuasfisika100.vercel.app/" target="_blank" rel="noopener noreferrer">Buka portal ↗<span style="position:absolute;clip-path:inset(50%)"> (tab baru)</span></a></article><article class="card study-card"><div class="study-icon" aria-hidden="true">{ }</div><span class="study-label">Komputasi · Belajar</span><h3>Berkom Nilai 100</h3><p>Akses portal Berpikir Komputasional untuk menemani sesi belajarmu.</p><a class="btn" href="https://acikberkomnilai100.vercel.app/" target="_blank" rel="noopener noreferrer">Buka portal ↗<span style="position:absolute;clip-path:inset(50%)"> (tab baru)</span></a></article></div></section>
+<div class="study-ribbon" aria-label="Fokus belajar"><span>PHYSICS</span><span>COMPUTATIONAL THINKING</span><span>MATHEMATICS</span><span>YOUR OWN PACE</span></div>
+<section class="container discovery" id="explore"><div class="discovery-heading"><div><div class="section-kicker">FOLLOW YOUR CURIOSITY</div><h2>Satu klik.<br>Banyak kemungkinan.</h2></div><p>Pilih ruang belajarmu. Pahami konsep, persiapkan ujian, atau latih cara berpikir.</p></div><div class="subject-tiles"><a class="subject-tile" href="https://acikfisikamateriuas.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="subject-symbol" aria-hidden="true">F = ma</span><h3>Pahami dunia.</h3><p>Temukan kembali konsep fisika lewat portal materi UAS.</p><span class="tile-link">Jelajahi materi Fisika ↗</span></a><a class="subject-tile" href="https://acikuasfisika100.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="subject-symbol" aria-hidden="true">E = ½mv²</span><h3>Siapkan langkahmu.</h3><p>Lanjutkan persiapanmu melalui portal UAS Fisika.</p><span class="tile-link">Buka persiapan UAS ↗</span></a><a class="subject-tile" href="https://acikberkomnilai100.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="subject-symbol" aria-hidden="true">{ logic }</span><h3>Pikirkan caranya.</h3><p>Bangun pendekatan yang runtut dalam berpikir komputasional.</p><span class="tile-link">Jelajahi Berkom ↗</span></a></div></section>
+<section class="container daily-lab" id="practice"><div class="section-kicker">SMALL STEPS, REAL PROGRESS</div><h2>Mulai kecil.<br>Jaga momentum.</h2><div class="lab-grid"><div class="lab-panel"><div class="section-kicker">YOUR STUDY CHECKLIST</div><h3>Rencana sesi ini</h3><p>Tiga langkah sederhana. Checklist disimpan di browser ini jika penyimpanan tersedia.</p><label class="check-row"><input type="checkbox" data-study-step="0"><span>Pilih satu konsep yang ingin dipahami</span></label><label class="check-row"><input type="checkbox" data-study-step="1"><span>Selesaikan satu sesi belajar fokus</span></label><label class="check-row"><input type="checkbox" data-study-step="2"><span>Catat satu hal yang baru dipelajari</span></label><div class="completion-line"><span>Langkah selesai</span><span id="checkCount" aria-live="polite">0 / 3</span></div><div class="completion-bar" aria-hidden="true"><div id="checkProgress"></div></div><button class="btn" id="resetChecklist" type="button">Mulai sesi baru</button></div><div class="lab-panel quiz-panel" id="quizPanel"><div class="section-kicker">A QUICK PHYSICS BREAK</div><h3 id="quizQuestion"></h3><p>Pilih satu jawaban untuk melihat pembahasan singkat.</p><div class="quiz-options" id="quizOptions"></div><p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p><button class="btn" id="nextQuestion" type="button">Soal berikutnya ↗</button></div></div></section><section class="container study-tools" id="focus"><div class="tool-layout"><div><div class="section-kicker">A LITTLE STRUCTURE. A LOT MORE FOCUS.</div><h2>Temukan ritme<br>belajarmu.</h2><p>Ubah satu sesi kecil menjadi langkah yang berarti. Pilih materi, sisihkan waktu, lalu uji pemahamanmu.</p><ol class="learning-steps"><li><span class="step-number">01</span><div><h3>Pahami satu konsep</h3><p>Mulai dari materi yang paling ingin kamu kuasai.</p><a href="https://acikfisikamateriuas.vercel.app/" target="_blank" rel="noopener noreferrer">Buka materi Fisika ↗</a></div></li><li><span class="step-number">02</span><div><h3>Beri ruang untuk fokus</h3><p>Atur timer, tutup distraksi, dan kerjakan satu hal sampai selesai.</p></div></li><li><span class="step-number">03</span><div><h3>Uji pemahamanmu</h3><p>Catat bagian yang masih sulit, lalu kembali belajar.</p><a href="https://acikuasfisika100.vercel.app/" target="_blank" rel="noopener noreferrer">Lanjut ke UAS Fisika ↗</a></div></li></ol></div><div class="timer-panel" id="timerPanel"><div class="section-kicker">FOCUS SESSION</div><h3>Satu sesi, satu tujuan.</h3><label for="focusDuration">Durasi belajar</label><select id="focusDuration"><option value="15">15 menit · Pemanasan</option><option value="25" selected>25 menit · Fokus</option><option value="45">45 menit · Mendalam</option></select><div class="timer-display" id="timerDisplay" role="timer" aria-label="Sisa waktu">25:00</div><div class="timer-actions"><button class="btn" id="timerStart" type="button">Mulai fokus ↗</button><button class="btn" id="timerReset" type="button">Reset</button></div><div class="timer-track" aria-hidden="true"><span id="timerProgress"></span></div><p class="timer-status" id="timerStatus" aria-live="polite">Siapkan materi, lalu mulai saat kamu siap.</p></div></div></section><section class="focus-banner"><div><small>MAKE ROOM FOR WHAT MATTERS</small><h2>Fokus hari ini.<br>Lebih siap esok hari.</h2></div><p>Mulai dari satu materi. Bangun pemahaman, temukan ritmemu, dan lanjutkan langkah berikutnya.</p></section><section class="container" id="library">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-kicker">
+                01 / Course Collection
+            </div>
+
+            <h2>
+                Academic Library
+            </h2>
+
+            <p>
+                Akses cepat ke semua mata kuliah
+                dan folder Google Drive.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="toolbar">
+
+        <input
+            class="search"
+            id="courseSearch" aria-label="Cari mata kuliah"
+            placeholder="Cari kode atau nama mata kuliah..."
+        >
+
+        <select id="categoryFilter" aria-label="Kategori mata kuliah">
+            <option value="all">Semua Kategori</option>
+            <option value="TPB">TPB</option>
+        </select>
+
+    </div>
+
+    <div class="grid" id="courseGrid"></div>
+
+</section>
+
+<section class="file-section" id="files">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="section-kicker">
+                    02 / Personal Archive
+                </div>
+
+                <h2>
+                    My Academic Files
+                </h2>
+
+                <p>
+                    File tersimpan secara lokal
+                    di browser perangkat ini.
+                </p>
+
+            </div>
+
+            <button class="btn" id="pickBtn">
+                ＋ Tambah File
+            </button>
+
+        </div>
+
+        <div class="dropzone" id="dropzone">
+
+            <div style="font-size:40px">📚</div>
+
+            <h3>
+                Drag & Drop file kuliah di sini
+            </h3>
+
+            <p>
+                PDF, DOCX, PPTX, XLSX,
+                gambar, ZIP, dan file lainnya.
+            </p>
+
+            <input
+                id="fileInput"
+                type="file"
+                multiple
+                hidden
+            >
+
+        </div>
+
+        <div
+            class="toolbar"
+            style="margin-top:20px"
+        >
+
+            <input
+                class="search"
+                id="fileSearch" aria-label="Cari file"
+                placeholder="Cari file yang tersimpan..."
+            >
+
+            <select id="fileTypeFilter" aria-label="Jenis file">
+
+                <option value="all">
+                    Semua File
+                </option>
+
+                <option value="pdf">
+                    PDF
+                </option>
+
+                <option value="image">
+                    Gambar
+                </option>
+
+                <option value="office">
+                    Office
+                </option>
+
+                <option value="other">
+                    Lainnya
+                </option>
+
+            </select>
+
+        </div>
+
+        <div
+            class="file-grid"
+            id="fileGrid"
+        ></div>
+
+    </div>
+
+</section>
+
+<section class="container" id="gpa">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-kicker">
+                03 / Performance
+            </div>
+
+            <h2>
+                GPA Calculator
+            </h2>
+
+            <p>
+                Hitung IPS berdasarkan SKS dan nilai.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div id="gpaRows"></div>
+
+        <div
+            style="
+                display:flex;
+                gap:10px;
+                flex-wrap:wrap;
+                margin-top:18px
+            "
+        >
+
+            <button
+                class="btn"
+                onclick="addGpaRow()"
+            >
+                ＋ Mata Kuliah
+            </button>
+
+            <button
+                class="btn"
+                onclick="calculateGpa()"
+            >
+                Hitung IPS
+            </button>
+
+        </div>
+
+        <h2 id="gpaResult" aria-live="polite">
+            IPS: 0.00
+        </h2>
+
+    </div>
+
+</section>
+
+<section class="container workspace-section" id="workspace"><div class="workspace-heading"><div class="section-kicker">MAKE IT YOURS</div><h2>Ide bagus layak<br>punya tempat.</h2><p>Tulis hal yang baru dipahami, rumus penting, atau pertanyaan untuk sesi berikutnya.</p></div><div class="workspace-grid"><div class="notes-panel"><h3>Catatan belajarmu</h3><label for="studyNotes">Catatan pribadi · tersimpan di browser ini</label><textarea id="studyNotes" maxlength="10000" placeholder="Hari ini aku memahami…&#10;&#10;Yang masih ingin kutanyakan…"></textarea><div class="notes-meta"><span id="notesStatus" aria-live="polite">Siap mencatat.</span><span id="notesCount">0 / 10.000</span></div><div class="notes-actions"><button class="btn" id="downloadNotes" type="button">Unduh catatan ↓</button><a class="btn" href="#focus">Mulai sesi fokus ↗</a></div></div><div class="session-panel"><div class="session-orb" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><h3>Ruang belajarmu saat ini</h3><div class="session-row"><span>Langkah checklist selesai</span><strong id="summaryChecks">0 / 3</strong></div><div class="session-row"><span>Kata dalam catatan</span><strong id="summaryWords">0</strong></div><div class="session-row"><span>Portal pilihan</span><strong>3</strong></div><p class="session-hint">Ringkasan berasal dari checklist dan catatanmu di perangkat ini. Mulai satu langkah, lalu lanjutkan dengan ritmemu.</p></div></div></section>
+<section class="container topic-explorer" id="topics"><div class="topic-layout"><div class="topic-heading"><div class="section-kicker">A MOMENT OF CLARITY</div><h2>Konsep kecil.<br>Pemahaman besar.</h2><p>Buka topik untuk pengingat singkat sebelum melanjutkan belajar.</p></div><div class="topic-list"><details><summary>Gaya & percepatan</summary><div class="topic-answer"><p>Gaya netto mengubah kecepatan benda. Untuk massa konstan, hukum II Newton menyatakan <code>ΣF = ma</code>.</p><p>Contoh: gaya netto 12 N pada massa 3 kg menghasilkan percepatan 4 m/s².</p><a href="#practice">Coba soal singkat →</a></div></details><details><summary>Energi kinetik</summary><div class="topic-answer"><p>Energi gerak benda dirumuskan sebagai <code>Ek = ½mv²</code>. Massa dalam kilogram dan kecepatan dalam m/s menghasilkan energi dalam joule.</p><p>Jika kecepatan menjadi dua kali lipat pada massa tetap, energi kinetik menjadi empat kali lipat.</p></div></details><details><summary>Momentum</summary><div class="topic-answer"><p>Momentum adalah besaran vektor: <code>p = mv</code>. Arahnya mengikuti kecepatan benda.</p><p>Momentum total sistem tetap jika gaya eksternal netto pada sistem nol.</p></div></details><details><summary>Dekomposisi masalah</summary><div class="topic-answer"><p>Pecah masalah besar menjadi bagian yang lebih kecil. Untuk membuat kalkulator IPS, pisahkan input nilai, validasi SKS, perhitungan bobot, dan penampilan hasil.</p><a href="https://acikberkomnilai100.vercel.app/" target="_blank" rel="noopener noreferrer">Lanjutkan ke portal Berkom ↗</a></div></details><details><summary>Belajar dengan active recall</summary><div class="topic-answer"><p>Setelah membaca satu konsep, tutup materi dan coba jelaskan kembali dengan kata-katamu sendiri. Buka materi untuk memeriksa bagian yang terlewat.</p><p>Gunakan catatan untuk merekam pertanyaan yang belum terjawab.</p><a href="#workspace">Tulis pemahamanmu →</a></div></details></div></div></section><section class="container" id="roadmap">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-kicker">
+                04 / Journey
+            </div>
+
+            <h2>
+                Academic Roadmap
+            </h2>
+
+            <p>
+                Gambaran perjalanan akademik ITB STEI-K.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="roadmap">
+
+        <div class="card">
+
+            <span class="sem">
+                SEMESTER 1
+            </span>
+
+            <h3>
+                Foundation
+            </h3>
+
+            <p>
+                Matematika, Fisika, Kimia,
+                Bahasa Indonesia, dan
+                Berpikir Komputasional.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <span class="sem">
+                SEMESTER 2
+            </span>
+
+            <h3>
+                Core Computing
+            </h3>
+
+            <p>
+                Bangun dasar komputasi
+                dan kemampuan teknis
+                secara bertahap.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <span class="sem">
+                SEMESTER 3–4
+            </span>
+
+            <h3>
+                Deepening
+            </h3>
+
+            <p>
+                Perkuat programming,
+                AI, data, software,
+                dan sistem.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <span class="sem">
+                SEMESTER 5–8
+            </span>
+
+            <h3>
+                Professional
+            </h3>
+
+            <p>
+                Proyek, internship,
+                penelitian, skripsi,
+                portfolio, dan karier.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="container">
+
+    <div class="info-grid">
+
+        <div class="card">
+
+            <h2>
+                👨‍🎓 Muhammad Rasyiiq
+            </h2>
+
+            <p>
+                <b>Institut Teknologi Bandung</b>
+                <br>
+                STEI-K
+                <br>
+                Personal Academic Library
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>
+                🎯 Focus
+            </h2>
+
+            <p>
+                Programming · Mathematics · Physics ·
+                Chemistry · Sustainability ·
+                Academic Projects
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="quick-nav">
+
+    <a href="#library">01</a>
+    <a href="#files">02</a>
+    <a href="#gpa">03</a>
+    <a href="#roadmap">04</a>
+
+</div>
+
+<section class="closing-section"><div class="eyebrow">Your next chapter starts here.</div><h2>Satu langkah hari ini.<br>Lebih siap untuk esok.</h2><p>Pilih materi, nyalakan timer, dan beri dirimu ruang untuk memahami.</p><div class="closing-links"><a class="btn" href="#study">Pilih portal belajar ↗</a><a class="btn" href="#workspace">Buka catatan →</a></div></section><button class="global-motion-toggle" id="globalMotionToggle" aria-pressed="false" type="button">Pause all animation</button><footer>
+
+    <b>
+        Muhammad Rasyiiq · ITB STEI-K
+    </b>
+
+    <br>
+
+    Personal Academic Library © 2026
+
+</footer>
+
+<script>
+
+/* ================= COURSE DATA ================= */
+
+const courses = [
+
+    [
+        "MA1101",
+        "Matematika I",
+        "TPB",
+        3,
+        "Konsep dasar kalkulus dan matematika untuk studi teknik.",
+        "https://drive.google.com/drive/folders/1X1cHt5Y3OvI7emG01HTLd2q3LPP1pjuD?usp=sharing"
+    ],
+
+    [
+        "FI1101",
+        "Fisika Dasar I",
+        "TPB",
+        4,
+        "Mekanika, energi, momentum, dan dasar fisika.",
+        "https://drive.google.com/drive/folders/1ghH5xiXBdmp71bwRwQZmBgv9CMjEfqoH?usp=sharing"
+    ],
+
+    [
+        "KI1101",
+        "Kimia Dasar I",
+        "TPB",
+        3,
+        "Konsep dasar kimia, stoikiometri, dan struktur materi.",
+        "https://drive.google.com/drive/folders/1mJvc-ndI010MCALiSS2Sske2GD6hiMVN?usp=sharing"
+    ],
+
+    [
+        "FI1102",
+        "Lab Fisika Dasar",
+        "TPB",
+        1,
+        "Praktikum dan eksperimen dasar fisika.",
+        "https://drive.google.com/drive/folders/1rGO0snMZB9zp-jiRSOs6sGRRy7cVzckS?usp=sharing"
+    ],
+
+    [
+        "WI1103",
+        "Pengantar Prinsip Keberlanjutan",
+        "TPB",
+        2,
+        "Konsep dasar keberlanjutan dan penerapannya.",
+        "https://drive.google.com/drive/folders/1IH3RpXbuOSUnEhMNECKtpe0KY_i3KhJv?usp=sharing"
+    ],
+
+    [
+        "WI1102",
+        "Berpikir Komputasional",
+        "TPB",
+        2,
+        "Pemecahan masalah dengan pendekatan komputasional.",
+        "https://drive.google.com/drive/folders/11CXNEB68q93a8WeqpqI6wjVoc2eX-5mR?usp=sharing"
+    ],
+
+    [
+        "WI2005",
+        "Bahasa Indonesia",
+        "TPB",
+        2,
+        "Komunikasi akademik dan penulisan ilmiah.",
+        "https://drive.google.com/drive/folders/1YfmsZ3AP2DXKNY_O-duHM-qvRK5RWiTk?usp=sharing"
+    ]
+
+];
+
+
+/* ================= COURSE RENDER ================= */
+
+const grid =
+    document.getElementById("courseGrid");
+
+function renderCourses(){
+
+    const q =
+        document
+        .getElementById("courseSearch")
+        .value
+        .toLowerCase();
+
+    const cat =
+        document
+        .getElementById("categoryFilter")
+        .value;
+
+    const list =
+        courses.filter(
+            c =>
+                (cat === "all" || c[2] === cat) &&
+                (
+                    `${c[0]} ${c[1]} ${c[4]}`
+                )
+                .toLowerCase()
+                .includes(q)
+        );
+
+    grid.innerHTML =
+        list.length
+        ?
+        list.map(
+            c => `
+
+            <div class="card">
+
+                <span class="course-code">
+                    ${c[0]}
+                </span>
+
+                <h3>
+                    ${c[1]}
+                </h3>
+
+                <p>
+                    ${c[4]}
+                </p>
+
+                <div class="meta">
+
+                    <span class="tag">
+                        ${c[2]}
+                    </span>
+
+                    <span class="tag">
+                        ${c[3]} SKS
+                    </span>
+
+                </div>
+
+                <a
+                    class="btn"
+                    href="${c[5]}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    🔗 Buka Google Drive
+                </a>
+
+            </div>
+
+            `
+        ).join("")
+        :
+        `
+        <div class="empty">
+            Mata kuliah tidak ditemukan.
+        </div>
+        `;
+}
+
+document
+.getElementById("courseSearch")
+.oninput = renderCourses;
+
+document
+.getElementById("categoryFilter")
+.onchange = renderCourses;
+
+renderCourses();
+
+
+/* ================= INDEXED DB ================= */
+
+let db;
+
+const request =
+    indexedDB.open(
+        "RasyiiqAcademicLibrary",
+        1
+    );
+
+request.onupgradeneeded = e => {
+
+    db = e.target.result;
+
+    if(
+        !db.objectStoreNames.contains("files")
+    ){
+
+        db.createObjectStore(
+            "files",
+            {
+                keyPath:"id",
+                autoIncrement:true
+            }
+        );
+
+    }
+
+};
+
+request.onsuccess = e => {
+
+    db = e.target.result;
+
+    renderFiles();
+
+};
+
+request.onerror = () => {
+
+    alert(
+        "Browser tidak mendukung penyimpanan file lokal."
+    );
+
+};
+
+
+/* ================= FILE UPLOAD ================= */
+
+const input =
+    document.getElementById("fileInput");
+
+document
+.getElementById("pickBtn")
+.onclick = () => input.click();
+
+input.onchange = () =>
+    saveFiles([...input.files]);
+
+const dz =
+    document.getElementById("dropzone");
+
+["dragenter","dragover"].forEach(
+    x =>
+    dz.addEventListener(
+        x,
+        e => {
+            e.preventDefault();
+            dz.classList.add("drag");
+        }
+    )
+);
+
+["dragleave","drop"].forEach(
+    x =>
+    dz.addEventListener(
+        x,
+        e => {
+            e.preventDefault();
+            dz.classList.remove("drag");
+        }
+    )
+);
+
+dz.addEventListener(
+    "drop",
+    e => saveFiles(
+        [...e.dataTransfer.files]
+    )
+);
+
+function saveFiles(files){
+
+    if(!db){ alert("Penyimpanan belum siap. Coba lagi sesaat."); return; }
+
+    const tx =
+        db.transaction(
+            "files",
+            "readwrite"
+        );
+
+    tx.onerror = () => alert("File gagal disimpan. Periksa ruang penyimpanan browser.");
+    const store =
+        tx.objectStore("files");
+
+    files.forEach(
+        file =>
+        store.add({
+            name:file.name,
+            type:file.type,
+            size:file.size,
+            created:
+                new Date().toISOString(),
+            blob:file
+        })
+    );
+
+    tx.oncomplete = () => {
+
+        input.value = "";
+
+        renderFiles();
+
+    };
+}
+
+function getFiles(cb){
+    if(!db){cb([]);return;}
+
+    const r =
+        db
+        .transaction(
+            "files",
+            "readonly"
+        )
+        .objectStore("files")
+        .getAll();
+
+    r.onsuccess =
+        () => cb(r.result);
+}
+
+function fileKind(f){
+
+    if(
+        f.type === "application/pdf"
+    )
+        return "pdf";
+
+    if(
+        f.type.startsWith("image/")
+    )
+        return "image";
+
+    if(
+        /word|presentation|spreadsheet|excel|officedocument/
+        .test(f.type)
+    )
+        return "office";
+
+    return "other";
+}
+
+function icon(f){
+
+    const k = fileKind(f);
+
+    if(k === "pdf")
+        return "📕";
+
+    if(k === "image")
+        return "🖼️";
+
+    if(k === "office")
+        return "📘";
+
+    return "📄";
+}
+
+function formatSize(n){
+
+    if(n < 1024)
+        return n + " B";
+
+    if(n < 1048576)
+        return (
+            n / 1024
+        ).toFixed(1) + " KB";
+
+    return (
+        n / 1048576
+    ).toFixed(1) + " MB";
+}
+
+function renderFiles(){
+
+    if(!db){ alert("Penyimpanan belum siap. Coba lagi sesaat."); return; }
+
+    getFiles(
+        all => {
+
+            const q =
+                document
+                .getElementById("fileSearch")
+                .value
+                .toLowerCase();
+
+            const k =
+                document
+                .getElementById("fileTypeFilter")
+                .value;
+
+            const list =
+                all.filter(
+                    f =>
+                    (
+                        !q ||
+                        f.name
+                        .toLowerCase()
+                        .includes(q)
+                    )
+                    &&
+                    (
+                        k === "all" ||
+                        fileKind(f) === k
+                    )
+                );
+
+            document
+            .getElementById("fileGrid")
+            .innerHTML =
+                list.length
+                ?
+                list.map(
+                    f => `
+
+                    <div class="file-card">
+
+                        <div class="file-icon">
+                            ${icon(f)}
+                        </div>
+
+                        <h4>
+                            ${escapeHtml(f.name)}
+                        </h4>
+
+                        <small>
+                            ${formatSize(f.size)}
+                            ·
+                            ${
+                                new Date(
+                                    f.created
+                                ).toLocaleDateString(
+                                    "id-ID"
+                                )
+                            }
+                        </small>
+
+                        <div class="file-actions">
+
+                            <button
+                                class="open"
+                                onclick="openFile(${f.id})"
+                            >
+                                Buka
+                            </button>
+
+                            <button
+                                class="download"
+                                onclick="downloadFile(${f.id})"
+                            >
+                                Download
+                            </button>
+
+                            <button
+                                class="remove"
+                                onclick="deleteFile(${f.id})"
+                            >
+                                Hapus
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    `
+                ).join("")
+                :
+                `
+                <div class="empty">
+                    Belum ada file tersimpan.
+                </div>
+                `;
+
+        }
+    );
+}
+
+document
+.getElementById("fileSearch")
+.oninput = renderFiles;
+
+document
+.getElementById("fileTypeFilter")
+.onchange = renderFiles;
+
+function getOne(id,cb){
+
+    const r =
+        db
+        .transaction(
+            "files",
+            "readonly"
+        )
+        .objectStore("files")
+        .get(id);
+
+    r.onsuccess =
+        () => cb(r.result);
+}
+
+function openFile(id){
+
+    getOne(
+        id,
+        f => {
+
+            if(!f) return;
+
+            const u =
+                URL.createObjectURL(
+                    f.blob
+                );
+
+            window.open(
+                u,
+                "_blank"
+            );
+
+            setTimeout(
+                () =>
+                URL.revokeObjectURL(u),
+                60000
+            );
+
+        }
+    );
+}
+
+function downloadFile(id){
+
+    getOne(
+        id,
+        f => {
+
+            if(!f) return;
+
+            const u =
+                URL.createObjectURL(
+                    f.blob
+                );
+
+            const a =
+                document.createElement("a");
+
+            a.href = u;
+
+            a.download = f.name;
+
+            a.click();
+
+            setTimeout(
+                () =>
+                URL.revokeObjectURL(u),
+                1000
+            );
+
+        }
+    );
+}
+
+function deleteFile(id){
+
+    if(
+        confirm("Hapus file ini?")
+    ){
+
+        const tx =
+            db.transaction(
+                "files",
+                "readwrite"
+            );
+
+        tx
+        .objectStore("files")
+        .delete(id);
+
+        tx.oncomplete =
+            renderFiles;
+    }
+}
+
+function escapeHtml(s){
+
+    return s.replace(
+        /[&<>"']/g,
+        m => ({
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+        }[m])
+    );
+}
+
+
+/* ================= GPA ================= */
+
+const grades = {
+    A:4,
+    AB:3.5,
+    B:3,
+    BC:2.5,
+    C:2,
+    D:1,
+    E:0
+};
+
+function addGpaRow(){
+
+    const row =
+        document.createElement("div");
+
+    row.className =
+        "toolbar gpa-row";
+
+    row.innerHTML = `
+
+        <input
+            aria-label="Nama mata kuliah" placeholder="Nama mata kuliah"
+            style="flex:1"
+        >
+
+        <input
+            aria-label="SKS" type="number"
+            min="1"
+            max="6"
+            value="3"
+            style="width:90px"
+        >
+
+        <select aria-label="Nilai"
+            style="width:110px"
+        >
+
+            ${
+                Object.keys(grades)
+                .map(
+                    g =>
+                    `<option>${g}</option>`
+                )
+                .join("")
+            }
+
+        </select>
+
+        <button
+            class="btn"
+            aria-label="Hapus mata kuliah" onclick="this.parentElement.remove()"
+        >
+            ×
+        </button>
+
+    `;
+
+    document
+    .getElementById("gpaRows")
+    .appendChild(row);
+}
+
+async function calculateGpa(){
+ const result=document.getElementById('gpaResult');
+ const rows=[...document.querySelectorAll('.gpa-row')].map(r=>({sks:Number(r.querySelector('input[type=number]').value),grade:r.querySelector('select').value}));
+ if(!rows.length||rows.some(r=>!Number.isInteger(r.sks)||r.sks<1||r.sks>6||!(r.grade in grades))){result.textContent='Masukkan SKS bulat 1–6 untuk setiap mata kuliah.';return;}
+ result.textContent='Menghitung…';
+ try{
+  if(location.protocol==='file:') throw new Error('local');
+  const response=await fetch('/api/gpa',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rows}),signal:AbortSignal.timeout(5000)});
+  if(!response.ok)throw new Error('unavailable');
+  const data=await response.json();
+  result.textContent='IPS: '+data.gpa.toFixed(2)+' · '+data.totalSks+' SKS';
+ }catch{
+  const total=rows.reduce((s,r)=>s+r.sks,0);
+  result.textContent='IPS: '+(rows.reduce((s,r)=>s+r.sks*grades[r.grade],0)/total).toFixed(2)+' · '+total+' SKS (perhitungan lokal)';
+ }
+}
+
+for(
+    let i=0;
+    i<4;
+    i++
+){
+    addGpaRow();
+}
+
+
+/* ================= SCROLL REVEAL ================= */
+
+document
+.querySelectorAll(
+    ".container,.hero,.file-section"
+)
+.forEach(
+    el =>
+    el.classList.add("reveal")
+);
+
+const observer =
+    new IntersectionObserver(
+        entries =>
+        entries.forEach(
+            e => {
+
+                if(e.isIntersecting){
+
+                    e.target
+                    .classList
+                    .add("visible");
+
+                    observer
+                    .unobserve(
+                        e.target
+                    );
+                }
+
+            }
+        ),
+        {
+            threshold:.08
+        }
+    );
+
+document
+.querySelectorAll(".reveal")
+.forEach(
+    el =>
+    observer.observe(el)
+);
+
+
+/* ================= CURSOR ================= */
+
+const glow =
+    document.querySelector(
+        ".cursor-glow"
+    );
+
+if(
+    glow &&
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
+){
+
+    let gx=0;
+    let gy=0;
+    let tx=0;
+    let ty=0;
+
+    window.addEventListener(
+        "pointermove",
+        e => {
+            tx=e.clientX;
+            ty=e.clientY;
+        },
+        {passive:true}
+    );
+
+    function move(){
+
+        gx +=
+            (tx-gx)*.12;
+
+        gy +=
+            (ty-gy)*.12;
+
+        glow.style.left =
+            gx+"px";
+
+        glow.style.top =
+            gy+"px";
+
+        requestAnimationFrame(move);
+    }
+
+    move();
+}
+
+
+/* ================= PARALLAX ================= */
+
+const heroVisual =
+    document.querySelector(
+        ".hero-visual"
+    );
+
+if(
+    heroVisual &&
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
+){
+
+    window.addEventListener(
+        "pointermove",
+        e => {
+
+            const x =
+                (
+                    e.clientX /
+                    innerWidth -
+                    .5
+                ) * 2;
+
+            const y =
+                (
+                    e.clientY /
+                    innerHeight -
+                    .5
+                ) * 2;
+
+            const b =
+                heroVisual
+                .querySelector(
+                    ".book-stack"
+                );
+
+            if(
+                b &&
+                !b.matches(":hover")
+            ){
+
+                b.style.transform =
+                    `translateX(-50%)
+                     rotate(${(
+                        -8+x*2
+                     ).toFixed(2)}deg)
+                     translateY(${(
+                        y*-8
+                     ).toFixed(2)}px)`;
+
+            }
+
+        },
+        {passive:true}
+    );
+}
+
+
+/* Progressive motion enhancement; content stays visible without JS. */
+(() => {
+ const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+ const phone = document.querySelector('.study-phone');
+ const hero = document.querySelector('.hero');
+ const visual = document.querySelector('.hero-visual');
+ let revealObserver, heroObserver, frame = 0;
+ const items = [...document.querySelectorAll('.portal-head, .study-card, .section-head, #courseGrid, #dropzone, #gpa > .card, .roadmap, .info-grid, .focus-banner > *, .tool-layout > *, .discovery-heading, .subject-tile, .lab-panel, .workspace-heading, .workspace-grid > *, .topic-heading, .topic-list, .closing-section h2')];
+ function resetTilt(){
+  cancelAnimationFrame(frame);frame=0;
+  if(phone){phone.style.setProperty('--tilt-x','0deg');phone.style.setProperty('--tilt-y','0deg');}
+ }
+ function configure(){
+  revealObserver?.disconnect();heroObserver?.disconnect();resetTilt();
+  document.documentElement.classList.remove('motion-ready','motion-paused');
+  if(reduced.matches || !('IntersectionObserver' in window))return;
+  document.documentElement.classList.add('motion-ready');
+  revealObserver=new IntersectionObserver(entries=>{
+   for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('motion-shown');revealObserver.unobserve(entry.target);}
+  },{threshold:0.06,rootMargin:'0px 0px -24px 0px'});
+  items.forEach((el,i)=>{el.classList.add('motion-item');el.style.setProperty('--reveal-delay',el.classList.contains('study-card')?((i%3)*85)+'ms':'0ms');revealObserver.observe(el);});
+  heroObserver=new IntersectionObserver(entries=>{
+   document.documentElement.classList.toggle('motion-paused',!entries[0].isIntersecting||document.hidden);
+  });
+  if(hero)heroObserver.observe(hero);
+ }
+ if(visual && phone){
+  visual.addEventListener('pointermove',event=>{
+   if(reduced.matches||event.pointerType!=='mouse')return;
+   const bounds=visual.getBoundingClientRect();
+   const x=Math.max(-1,Math.min(1,(event.clientX-bounds.left)/bounds.width*2-1));
+   const y=Math.max(-1,Math.min(1,(event.clientY-bounds.top)/bounds.height*2-1));
+   cancelAnimationFrame(frame);
+   frame=requestAnimationFrame(()=>{phone.style.setProperty('--tilt-y',(x*10)+'deg');phone.style.setProperty('--tilt-x',(-y*6)+'deg');frame=0;});
+  },{passive:true});
+  visual.addEventListener('pointerleave',resetTilt);
+ }
+ document.addEventListener('visibilitychange',()=>{
+  const bounds=hero?.getBoundingClientRect();
+  document.documentElement.classList.toggle('motion-paused',document.hidden||!bounds||bounds.bottom<0||bounds.top>innerHeight);
+ });
+ reduced.addEventListener('change',configure);
+ configure();
+})();
+
+
+(() => {
+ const toggle=document.getElementById('motionToggle');
+ toggle.addEventListener('click',()=>{const paused=document.documentElement.classList.toggle('user-paused');toggle.setAttribute('aria-pressed',String(paused));toggle.textContent=paused?'Resume animation':'Pause animation';const globalToggle=document.getElementById('globalMotionToggle');globalToggle.setAttribute('aria-pressed',String(paused));globalToggle.textContent=paused?'Resume all animation':'Pause all animation';});
+ const duration=document.getElementById('focusDuration'),display=document.getElementById('timerDisplay'),start=document.getElementById('timerStart'),reset=document.getElementById('timerReset'),status=document.getElementById('timerStatus'),progress=document.getElementById('timerProgress'),panel=document.getElementById('timerPanel');
+ let total=Number(duration.value)*60,remaining=total,deadline=0,ticker=null;
+ function render(){display.textContent=String(Math.floor(remaining/60)).padStart(2,'0')+':'+String(remaining%60).padStart(2,'0');progress.style.width=((total-remaining)/total*100)+'%';}
+ function stop(){clearInterval(ticker);ticker=null;duration.disabled=false;panel.classList.remove('running');}
+ function tick(){remaining=Math.max(0,Math.ceil((deadline-Date.now())/1000));render();if(remaining===0){stop();start.textContent='Mulai lagi ↗';status.textContent='Sesi selesai. Saatnya istirahat sejenak.';}}
+ start.addEventListener('click',()=>{
+  if(ticker!==null){tick();stop();start.textContent='Lanjutkan ↗';status.textContent='Dijeda. Lanjutkan saat kamu siap.';return;}
+  if(remaining===0)remaining=total;
+  deadline=Date.now()+remaining*1000;duration.disabled=true;panel.classList.add('running');start.textContent='Jeda';status.textContent='Fokus pada satu hal. Kamu bisa.';ticker=setInterval(tick,250);tick();
+ });
+ function restart(){stop();total=Number(duration.value)*60;remaining=total;start.textContent='Mulai fokus ↗';status.textContent='Siapkan materi, lalu mulai saat kamu siap.';render();}
+ reset.addEventListener('click',restart);duration.addEventListener('change',restart);
+ document.addEventListener('visibilitychange',()=>{if(ticker!==null)tick();});
+ render();
+})();
+
+(() => {
+ const boxes=[...document.querySelectorAll('[data-study-step]')];
+ let saved=[];try{const parsed=JSON.parse(localStorage.getItem('rasyiiq-study-checklist')||'[]');if(Array.isArray(parsed))saved=parsed;}catch{}
+ boxes.forEach((box,i)=>box.checked=saved[i]===true);
+ function updateChecklist(persist){const count=boxes.filter(b=>b.checked).length;document.getElementById('checkCount').textContent=count+' / 3'+(count===3?' · Selesai!':'');document.getElementById('checkProgress').style.width=count/3*100+'%';if(persist)try{localStorage.setItem('rasyiiq-study-checklist',JSON.stringify(boxes.map(b=>b.checked)));}catch{}}
+ boxes.forEach(box=>box.addEventListener('change',()=>updateChecklist(true)));document.getElementById('resetChecklist').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);updateChecklist(true);});updateChecklist(false);
+ const questions=[
+ {q:'Gaya netto 10 N bekerja pada benda bermassa 2 kg. Berapa percepatannya?',choices:['2 m/s²','5 m/s²','10 m/s²','20 m/s²'],answer:1,why:'Hukum II Newton: a = F / m = 10 / 2 = 5 m/s².'},
+ {q:'Kecepatan benda menjadi dua kali lipat. Energi kinetiknya menjadi…',choices:['Tetap','2 kali semula','4 kali semula','Setengah semula'],answer:2,why:'Energi kinetik E = ½mv². Untuk massa tetap, kecepatan dua kali lipat menghasilkan energi empat kali lipat.'},
+ {q:'Benda bergerak dengan kecepatan konstan 3 m/s selama 4 s. Berapa jaraknya?',choices:['7 m','12 m','1,33 m','24 m'],answer:1,why:'Untuk kecepatan konstan, jarak = kecepatan × waktu = 3 × 4 = 12 m.'},
+ {q:'Massa benda 2 kg dan kecepatannya 3 m/s. Berapa besar momentumnya?',choices:['1,5 kg·m/s','5 kg·m/s','6 kg·m/s','9 kg·m/s'],answer:2,why:'Momentum p = mv = 2 × 3 = 6 kg·m/s.'}
+ ];let index=0;
+ const options=document.getElementById('quizOptions'),feedback=document.getElementById('quizFeedback'),panel=document.getElementById('quizPanel');
+ function showQuestion(){const q=questions[index];document.getElementById('quizQuestion').textContent=q.q;options.replaceChildren();feedback.textContent='';panel.classList.remove('answered');q.choices.forEach((choice,i)=>{const button=document.createElement('button');button.type='button';button.className='quiz-option';button.textContent=choice;button.addEventListener('click',()=>{[...options.children].forEach((b,j)=>{b.disabled=true;if(j===q.answer)b.classList.add('correct');});if(i!==q.answer)button.classList.add('wrong');feedback.textContent=(i===q.answer?'Tepat! ':'Belum tepat. ')+q.why;panel.classList.add('answered');});options.appendChild(button);});}
+ document.getElementById('nextQuestion').addEventListener('click',()=>{index=(index+1)%questions.length;showQuestion();document.getElementById('quizQuestion').setAttribute('tabindex','-1');document.getElementById('quizQuestion').focus({preventScroll:true});});showQuestion();
+ const line=document.getElementById('readingLine'),back=document.getElementById('backTop');let scheduled=false;
+ function updateScroll(){const max=document.documentElement.scrollHeight-innerHeight;line.style.transform='scaleX('+Math.max(0,Math.min(1,max>0?scrollY/max:0))+')';back.classList.toggle('show',scrollY>650);scheduled=false;}
+ addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updateScroll);}},{passive:true});addEventListener('resize',updateScroll);updateScroll();
+})();
+
+(() => {
+ const notes=document.getElementById('studyNotes'),status=document.getElementById('notesStatus'),count=document.getElementById('notesCount');
+ try{notes.value=localStorage.getItem('rasyiiq-study-notes')||'';}catch{status.textContent='Penyimpanan tidak tersedia — unduh catatan untuk menyimpannya.';}
+ function summarize(){const text=notes.value.trim();document.getElementById('summaryWords').textContent=text?text.split(/\s+/u).length:0;document.getElementById('summaryChecks').textContent=[...document.querySelectorAll('[data-study-step]')].filter(x=>x.checked).length+' / 3';count.textContent=notes.value.length.toLocaleString('id-ID')+' / 10.000';}
+ notes.addEventListener('input',()=>{summarize();try{localStorage.setItem('rasyiiq-study-notes',notes.value);status.textContent='Tersimpan di browser ini.';}catch{status.textContent='Penyimpanan gagal. Gunakan Unduh catatan.';}});
+ document.querySelectorAll('[data-study-step]').forEach(x=>x.addEventListener('change',summarize));document.getElementById('resetChecklist').addEventListener('click',summarize);summarize();
+ document.getElementById('downloadNotes').addEventListener('click',()=>{if(!notes.value.trim()){status.textContent='Tulis catatan terlebih dahulu.';notes.focus();return;}const url=URL.createObjectURL(new Blob([notes.value],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='catatan-belajar.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status.textContent='Unduhan catatan disiapkan.';});
+ document.getElementById('globalMotionToggle').addEventListener('click',()=>document.getElementById('motionToggle').click());
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ document.querySelectorAll('.grid .card,.lab-panel,.timer-panel,.notes-panel').forEach(el=>{
+  let frame=0;
+  el.addEventListener('pointermove',event=>{if(event.pointerType!=='mouse'||reduced.matches||document.documentElement.classList.contains('user-paused'))return;cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{const r=el.getBoundingClientRect();el.style.setProperty('--pointer-x',(event.clientX-r.left)+'px');el.style.setProperty('--pointer-y',(event.clientY-r.top)+'px');});},{passive:true});
+  el.addEventListener('pointerleave',()=>{cancelAnimationFrame(frame);el.style.setProperty('--pointer-x','-300px');el.style.setProperty('--pointer-y','-300px');});
+ });
+})();
+</script>
+
+</body>
+</html>
